@@ -11,14 +11,6 @@
         "src": "/(.*)",
         "dest": "index.js"
       }
-    ],
-    "env": {
-      "DB_URL": "mongodb+srv://kambojshubham277:lfmPq35WPrNnfqK8@startupdb.nmfvtam.mongodb.net/?retryWrites=true&w=majority"  
-    },
-    "functions": {
-      "api/*": {
-        "memory": 512
-      }
-    }
+    ]
   }
   
