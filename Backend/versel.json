@@ -1,15 +1,24 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "index.js", 
-      "use": "@vercel/node"
+    "version": 2,
+    "builds": [
+      {
+        "src": "index.js",  
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "index.js"
+      }
+    ],
+    "env": {
+      "DB_URL": "mongodb+srv://kambojshubham277:lfmPq35WPrNnfqK8@startupdb.nmfvtam.mongodb.net/?retryWrites=true&w=majority"  // Replace with your MongoDB connection string
+    },
+    "functions": {
+      "api/*": {
+        "memory": 512
+      }
     }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/Backend/index.js"
-    }
-  ]
-}
+  }
+  
