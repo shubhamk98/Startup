@@ -19,3 +19,8 @@ app.listen(PORT, () => {
 connectDB(DB_URL).then(() => console.log("Database connection successful"));
 
 app.use("/api", apiRoutes);
+
+app.use('/',(req,res)=>{
+  res.send("Server is running")
+})
+
