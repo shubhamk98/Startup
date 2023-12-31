@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Kanit', sans-serif;
+}
+
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.startup-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-left: 90px;
+    margin-right: 90px;
+    margin-top: 40px;
+}
+
+.startup-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    background-color: #4caf50;
+    color: white;
+    padding: 8px 12px;
+    margin: 0 4px;
+    border: none;
+    cursor: pointer;
+}
+
+.pagination button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+
+.heroSection {
+    display: flex;
+    background-color: #23B0DC;
+}
+
+h1 {
+    margin: 0;
+    margin-top: 50px;
+    line-height: 40px;
+    text-align: left;
+    margin-bottom: 35px;
+    font-size: 40px;
+    color: #ffffff;
+}
+
+.rightside {
+    margin-left: 120px;
+}
+
+.leftside{
+    margin-right: 40px;
+}
+.leftside,
+img {
+    height: 477px;
+}
+
+.inputBox {
+    width: 480px;
+    height: 45px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    border: none;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.searchBtn {
+    width: 100px;
+    height: 45px;
+    border-radius: 40px;
+    background: #363636;
+}
