@@ -25,7 +25,8 @@ const StartupSearch = () => {
   }, []);
 
   const searchStartups = async () => {
-    const url = `http://localhost:5000/api/filter?location=${location}&name=${name}&industryVertical=${industryVertical}`;
+  
+    const url = `http://localhost:${process.env.PORT || '5000'}/api/filter?location=${location}&name=${name}&industryVertical=${industryVertical}`;
 
     try {
       const response = await fetch(url);
