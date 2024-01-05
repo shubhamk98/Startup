@@ -11,9 +11,10 @@ const PORT = process.env.PORT || 5000;
 const DB_URL = process.env.DB_URL;
 
 app.use(cors({
-  origin: ['https://startupfrontend.vercel.app','https://venturesinsider-gakfnymgk-shubham-kambojs-projects.vercel.app/'],
+  origin: '*',
   credentials: true,
 }));
+
 
 
 app.listen(PORT, () => {
