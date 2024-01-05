@@ -4,6 +4,7 @@ import "./StartupSearch.css";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 
+
 const StartupSearch = () => {
   const [location, setLocation] = useState("");
   const [name, setName] = useState("");
@@ -26,7 +27,7 @@ const StartupSearch = () => {
 
   const searchStartups = async () => {
   
-    const url = `http://localhost:${process.env.PORT || '5000'}/api/filter?location=${location}&name=${name}&industryVertical=${industryVertical}`;
+    const url = `https://startupserver-egwgzlso6-shubham-kambojs-projects.vercel.app/api/filter?location=${location}&name=${name}&industryVertical=${industryVertical}`;
 
     try {
       const response = await fetch(url);
