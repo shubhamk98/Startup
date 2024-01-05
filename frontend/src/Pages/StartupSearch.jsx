@@ -3,13 +3,14 @@ import StartUpCards from "../components/StartUpCards";
 import "./StartupSearch.css";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
-
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const StartupSearch = () => {
   const [location, setLocation] = useState("");
   const [name, setName] = useState("");
   const [industryVertical, setIndustryVertical] = useState("");
   const [results, setResults] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
@@ -26,8 +27,9 @@ const StartupSearch = () => {
   }, []);
 
   const searchStartups = async () => {
-  
-    const url = `https://startupserver-egwgzlso6-shubham-kambojs-projects.vercel.app/api/filter?location=${location}&name=${name}&industryVertical=${industryVertical}`;
+    setLoading(true);
+
+    const url = `https://startupserver.vercel.app/api/filter?location=${location}&name=${name}&industryVertical=${industryVertical}`;
 
     try {
       const response = await fetch(url);
@@ -36,10 +38,10 @@ const StartupSearch = () => {
       setCurrentPage(1); // Reset to the first page when new results are fetched
     } catch (error) {
       console.error("Error fetching startups:", error.message);
+    } finally {
+      setLoading(false);
     }
   };
-
-
 
   // Calculate the start and end indexes for the current page
   const startIndex = (currentPage - 1) * pageSize;
@@ -77,7 +79,9 @@ const StartupSearch = () => {
             onChange={(e) => setIndustryVertical(e.target.value)}
           />
           <br />
-          <button className="searchBtn" onClick={searchStartups}>Search</button>
+          <button className="searchBtn" onClick={searchStartups}>
+            Search
+          </button>
         </div>
         <div className="leftside">
           <img
@@ -87,7 +91,9 @@ const StartupSearch = () => {
         </div>
       </div>
 
-      {results && (
+      {loading && <LoadingSpinner/>}
+
+      {results && !loading && (
         <div>
           <div className="startup-list">
             {startupsForPage.map((startup, index) => (
