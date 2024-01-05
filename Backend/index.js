@@ -10,20 +10,13 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const DB_URL = process.env.DB_URL;
 
-app.use(cors({
-  origin: '*',
-  credentials: true,
-}));
-
-
-
 app.listen(PORT, () => {
   console.log(`Server started at PORT ${PORT}`);
 });
 
 connectDB(DB_URL).then(() => console.log("Database connection successful"));
 
-app.use("/api", apiRoutes);
+app.use("/api", cors(), apiRoutes);
 
 app.use('/',(req,res)=>{
   res.send("Server is running")
